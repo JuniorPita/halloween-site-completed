@@ -1,0 +1,22 @@
+// About
+.about {
+    &__container {
+        row-gap: 2rem;
+        background: var(--container-color);
+        border-radius: 1rem;
+        padding: 2.5rem 0 1.5rem 0;
+    }
+
+    &__data {
+        text-align: center;
+    }
+
+    &__description {
+        margin-bottom: var(--mb-2);
+    }
+
+    &__img {
+        width: 200px;
+        justify-self: center;
+    }
+}

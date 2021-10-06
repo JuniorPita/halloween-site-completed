@@ -87,13 +87,13 @@
             width: 1.5rem;
             height: 5px;
             border-radius: .5rem;
-            transition: .2s;
         }
     }
 
     &-horizontal.swiper-pagination-bullets {
         .swiper-pagination-bullet {
-            margin: 0 .5rem;
+            margin: 5px .5rem;
+            transition: .3s;
         }
     }
 }

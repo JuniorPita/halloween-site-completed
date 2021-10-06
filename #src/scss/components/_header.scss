@@ -6,6 +6,11 @@
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
+
+    // Change background header
+    &.scroll-header {
+        background: var(--container-color);
+    }
 }
 
 .nav {
