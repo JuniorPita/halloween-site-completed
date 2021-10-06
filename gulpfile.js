@@ -21,14 +21,8 @@ let path = {
         icons: sourceFolder + "/icons/*.{png,svg}",
         jsslick: sourceFolder + "/js/slick.min.js",
         cssslick: sourceFolder + "/css/slick.css",
-        jqueryvalidate: sourceFolder + "/js/jquery.validate.min.js",
-        jquerymaskedinput: sourceFolder + "/js/jquery.maskedinput.min.js",
-        animatecss: sourceFolder + "/css/animate.min.css",
-        wowjs: sourceFolder + "/js/wow.min.js",
-        bootstrapgrid: sourceFolder + "/css/bootstrap-grid.min.css",
-        bootstrapreboot: sourceFolder + "/css/bootstrap-reboot.min.css",
-        normalizecss: sourceFolder + "/css/normalize.css",
-        jqueryfile: sourceFolder + "/js/jquery-3.6.0.min.js",
+        swipercss: sourceFolder + "/css/swiper-bundle.min.css",
+        swiperjs: sourceFolder + "/js/swiper-bundle.min.js",
         scrollreveal: sourceFolder + "/js/scrollreveal.min.js",
     },
     watch : {
@@ -124,59 +118,13 @@ function js() {
         .pipe(browsersync.stream());
 }
 
-function cssSlick() {
-    return src(path.src.cssslick)
+function swiperCss() {
+    return src(path.src.swipercss)
         .pipe(dest(path.build.css));
 }
 
-function jsSlick() {
-    return src(path.src.jsslick)
-        .pipe(dest(path.build.js));
-}
-
-function jqueryValidate() {
-    return src(path.src.jqueryvalidate)
-        .pipe(dest(path.build.js));
-}
-
-function jqueryMaskedInput() {
-    return src(path.src.jquerymaskedinput)
-        .pipe(dest(path.build.js));
-}
-
-function animateCss() {
-    return src(path.src.animatecss)
-        .pipe(dest(path.build.css));
-}
-
-function wowJs() {
-    return src(path.src.wowjs)
-        .pipe(dest(path.build.js));
-}
-
-function bootstrapGrid() {
-    return src(path.src.bootstrapgrid)
-        .pipe(dest(path.build.css));
-}
-
-function bootstrapReboot() {
-    return src(path.src.bootstrapreboot)
-        .pipe(dest(path.build.css));
-}
-
-function normalizeCss() {
-    return src(path.src.normalizecss)
-        .pipe(cleancss())
-        .pipe(
-            rename({
-                extname: ".min.css",
-            })
-        )
-        .pipe(dest(path.build.css));
-}
-
-function jQueryFile() {
-    return src(path.src.jqueryfile)
+function swiperJs() {
+    return src(path.src.swiperjs)
         .pipe(dest(path.build.js));
 }
 
@@ -284,20 +232,12 @@ function clean(params) {
     return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, icons, cssSlick, jsSlick, jqueryValidate, jqueryMaskedInput, animateCss, wowJs, bootstrapGrid, bootstrapReboot, normalizeCss, jQueryFile, scrollReveal));
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, icons, swiperCss, swiperJs, scrollReveal));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
+exports.swiperjs = swiperJs;
+exports.swipercss = swiperCss;
 exports.scrollreveal = scrollReveal;
-exports.jqueryfile = jQueryFile;
-exports.normalizecss = normalizeCss;
-exports.bootstrapgrid = bootstrapGrid;
-exports.bootstrapreboot = bootstrapReboot;
-exports.wowjs = wowJs;
-exports.animatecss = animateCss;
-exports.jquerymaskedinput = jqueryMaskedInput;
-exports.jqueryvalidate = jqueryValidate;
-exports.jsslick = jsSlick;
-exports.cssslick = cssSlick;
 exports.icons = icons;
 exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
