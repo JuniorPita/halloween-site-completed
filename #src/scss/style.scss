@@ -2,3 +2,8 @@
 @import './config/variables';
 @import './base/base';
 @import './layout/layout';
+
+// Secondary styles
+@import './components/buttons';
+@import './components/header';
+@import './components/home';
