@@ -41,6 +41,26 @@
         font-size: 1.25rem;
         cursor: pointer;
     }
+
+    // Scroll sections active link
+    &__link {
+        &.active-link {
+            position: relative;
+            color: lightcoral;
+            transition: all ease-in-out .3s;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -.75rem;
+                left: 45%;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: lightcoral;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 767px) {

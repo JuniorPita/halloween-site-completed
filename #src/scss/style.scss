@@ -5,6 +5,7 @@
 
 // Secondary styles
 @import './components/buttons';
+@import './components/_scrollup';
 
 // Page styles
 @import './components/header';
@@ -13,3 +14,9 @@
 @import './components/about';
 @import './components/trickortreat';
 @import './components/discount';
+@import './components/newarrivals';
+@import './components/newsletter';
+@import './components/_footer';
+
+// Media Queries
+@import './media/media';
